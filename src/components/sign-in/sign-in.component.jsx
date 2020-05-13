@@ -5,6 +5,7 @@ import './sign-in.styles.scss';
 import FormInput from '../../components/form-input/form-input.component';
 
 import { CustomButton } from "../custom-button/custom-button.component";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 // This has to be class component as it has to store what user is typing.
 
@@ -48,8 +49,14 @@ class SignIn extends React.Component {
                                required
                                label='password'
                                handleChange={this.handleChange}/>
+                    <div className='buttons'>
+                        <CustomButton type='submit' value='submit the form'> Sign In </CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+                            {''}
+                            Sign in with Google{''}
+                        </CustomButton>
+                    </div>
 
-                    <CustomButton type='submit' value='submit the form'> Sign In </CustomButton>
                 </form>
             </div>
         )
